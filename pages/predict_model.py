@@ -6,7 +6,6 @@ import joblib
 import pandas as pd
 import numpy as np
 from sklearn import tree # import tree function
-import matplotlib.pyplot as plt
 import pydotplus # import pydotplus package
 
 uploaded_file = st.session_state.uploaded_file
@@ -39,5 +38,5 @@ tree_dot = tree.export_graphviz(rf.estimators_[num_tree], # choose one tree from
 st.graphviz_chart(tree_dot)
 
 rf.feature_importances_.argsort()
-plt.barh(df.feature_names[sorted_idx], rf.feature_importances_[sorted_idx])
-plt.xlabel("Random Forest Feature Importance")
+st.write(df.feature_names[sorted_idx]) 
+st.write(rf.feature_importances_[sorted_idx])
