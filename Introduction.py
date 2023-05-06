@@ -8,7 +8,7 @@ import json
 import folium
 from streamlit_folium import st_folium
 
-st.header("US Accidents Visulization")
+st.title("US Accidents Visulization")
 st.write("Jiyan CHEN&emsp;&emsp;Leqi LIU&emsp;&emsp;Xiaoyu FU&emsp;&emsp;Linjie XIA")
 st.markdown("<hr />", unsafe_allow_html=True)
 """
