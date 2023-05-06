@@ -1,7 +1,7 @@
 import streamlit as st
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import cross_val_score # import cross_val_score function
+from scikit-learn.ensemble import RandomForestClassifier
+from scikit-learn.model_selection import train_test_split
+from scikit-learn.model_selection import cross_val_score # import cross_val_score function
 import joblib
 import pandas as pd
 import numpy as np
@@ -12,7 +12,7 @@ df = df.dropna()
 df['Severity']=df['Severity'].astype(np.int8)
 df["is_severe"]= np.where(df['Severity'] == 4, 1, 0)
 
-@cache_resource
+@st.cache_resource
 def read_model(model):
     model = joblib.load(model)
     return model
@@ -26,9 +26,9 @@ X = df[['Temperature(F)', 'Wind_Chill(F)', 'Humidity(%)',
         'Give_Way', 'Junction', 'No_Exit', 'Railway', 'Roundabout', 
         'Station', 'Stop', 'Traffic_Calming', 'Traffic_Signal']]
 # 分割数据集为训练集和测试集
+rf = read_model('RandomForestClassifier.m')
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=202355)
 scores = cross_val_score(rf, X, y, cv=10) # use 10-fold cross-validation
-st.write("Cross-validation scores:", scores)
 st.write("Mean score:", scores.mean())
 st.write("Standard deviation:", scores.std())
-
+st.line_chart(scores)

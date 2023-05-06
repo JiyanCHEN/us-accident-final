@@ -1,6 +1,8 @@
 import streamlit as st
 import plotly.express as px
 import pandas as pd
+import numpy as np
+
 uploaded_file = st.session_state.uploaded_file
 df = pd.read_feather(uploaded_file)
 df = df.dropna().reset_index(drop=True)
