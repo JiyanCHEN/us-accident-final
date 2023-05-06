@@ -7,3 +7,4 @@ numpy
 folium
 streamlit_folium
 shapely
+pydotplus
