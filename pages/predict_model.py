@@ -62,4 +62,7 @@ if submit:
     st.header("Prediction")
     input = pd.DataFrame(values, index=[0])
     predict = rf.predict(input)
-    st.write(predict)
+    if predict == 0:
+        st.write('The accident may not in a high severity.')
+    else:
+        st.write('a high severity accident may happen!')
