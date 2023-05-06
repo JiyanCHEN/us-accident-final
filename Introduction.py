@@ -66,6 +66,4 @@ if 'uploaded_file' not in st.session_state:
 uploaded_file = st.file_uploader("Choose a file",key="data")
 if st.session_state['uploaded_file'] is None:
     st.session_state['uploaded_file'] = uploaded_file
-    df = pd.read_feather(uploaded_file)
-else:
-    st.stop()
+df = pd.read_feather(uploaded_file)
