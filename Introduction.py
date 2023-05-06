@@ -12,7 +12,6 @@ st.title("US Accidents Visulization")
 st.write("Jiyan CHEN&emsp;&emsp;Leqi LIU&emsp;&emsp;Xiaoyu FU&emsp;&emsp;Linjie XIA")
 st.markdown("<hr />", unsafe_allow_html=True)
 """
-# EDA on US Accidents
 ## Background
 Traffic accidents are one of the leading causes of death and injury worldwide. According to the World Health Organization, around 1.35 million people die in road accidents every year, and an additional 20-50 million suffer non-fatal injuries, which can have a profound impact on their lives. While there are various factors that contribute to the occurrence of traffic accidents, visual analysis of the data can provide valuable insights into their causes and patterns.
 
