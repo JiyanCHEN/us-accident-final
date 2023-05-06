@@ -6,6 +6,9 @@ import joblib
 import pandas as pd
 import numpy as np
 
+if 'uploaded_file' not in st.session_state:
+    st.session_state['uploaded_file'] = None
+    
 if st.session_state['uploaded_file'] is None:
     st.warning("Please upload the dataset first")
     st.stop()

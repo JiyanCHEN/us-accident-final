@@ -1,12 +1,6 @@
 import streamlit as st
-import plotly.graph_objects as go
-import plotly.express as px
 import pandas as pd
-import numpy as np
-import datetime
-import json
-import folium
-from streamlit_folium import st_folium
+
 
 st.title("US Accidents Visulization")
 st.write("Jiyan CHEN&emsp;&emsp;Leqi LIU&emsp;&emsp;Xiaoyu FU&emsp;&emsp;Linjie XIA")

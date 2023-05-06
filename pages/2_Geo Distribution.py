@@ -8,6 +8,9 @@ import json
 import folium
 from streamlit_folium import st_folium
 
+if 'uploaded_file' not in st.session_state:
+    st.session_state['uploaded_file'] = None
+    
 if st.session_state['uploaded_file'] is None:
     st.warning("Please upload the dataset first")
     st.stop()
