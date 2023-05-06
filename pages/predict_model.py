@@ -29,9 +29,3 @@ tree_dot = tree.export_graphviz(rf.estimators_[tree], # choose one tree from the
                                 filled=True) # fill the nodes with colors
 
 st.graphviz_chart(tree_dot)
-
-importances = rf.feature_importances_
-indices = np.argsort(importances)[::-1] # 下标排序
-for f in range(x_train.shape[1]):   # x_train.shape[1]=13
-    print("%2d) %-*s %f" % \
-          (f + 1, 30, feat_labels[indices[f]], importances[indices[f]]))
