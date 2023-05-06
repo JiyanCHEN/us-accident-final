@@ -5,8 +5,6 @@ from sklearn.model_selection import cross_val_score # import cross_val_score fun
 import joblib
 import pandas as pd
 import numpy as np
-from sklearn import tree # import tree function
-import pydotplus # import pydotplus package
 
 uploaded_file = st.session_state.uploaded_file
 df = pd.read_feather(uploaded_file)
@@ -27,16 +25,33 @@ def read_model(model):
     return model
 
 rf=read_model('RandomForestClassifier.m')
-# 导出随机森林中的一棵树为dot文件
-num_tree = st.slider('Select one tree to demonstrate', 0, 19, 1)
-tree_dot = tree.export_graphviz(rf.estimators_[num_tree], # choose one tree from the random forest model
-                                out_file=None, # do not write to a file
-                                feature_names=X.columns, # use the feature names as labels
-                                class_names=['Not severe', 'Severe'], # use the class names as labels
-                                filled=True) # fill the nodes with colors
 
-st.graphviz_chart(tree_dot)
+features = ['Temperature(F)', 'Wind_Chill(F)', 'Humidity(%)', 
+        'Pressure(in)', 'Visibility(mi)', 'Wind_Speed(mph)', 
+        'Precipitation(in)', 'Amenity', 'Bump', 'Crossing', 
+        'Give_Way', 'Junction', 'No_Exit', 'Railway', 
+        'Roundabout', 'Station', 'Stop', 'Traffic_Calming', 'Traffic_Signal']
 
-rf.feature_importances_.argsort()
-st.write(df.feature_names[sorted_idx]) 
-st.write(rf.feature_importances_[sorted_idx])
+# Create a dictionary to store the values of the features
+values = {}
+
+# Create a form with a key
+with st.form(key="my_form"):
+    # Loop through the features and create input widgets for each feature
+    for feature in features:
+        # If the feature is a boolean, use a checkbox widget
+        if feature in ['Amenity', 'Bump', 'Crossing', 
+        'Give_Way', 'Junction', 'No_Exit', 'Railway', 
+        'Roundabout', 'Station', 'Stop', 'Traffic_Calming', 'Traffic_Signal']:
+            values[feature] = st.checkbox(feature)
+        # Otherwise, use a number input widget
+        else:
+            values[feature] = st.number_input(feature)
+    # Create a submit button
+    submit = st.form_submit_button(label="Submit")
+
+# If the form is submitted, display the values of the features
+if submit:
+    st.write("The values of the features are:")
+    for feature in features:
+        st.write(f"{feature}: {values[feature]}")
