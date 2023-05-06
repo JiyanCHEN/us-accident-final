@@ -63,6 +63,8 @@ with st.expander("Details about features used in the dataset"):
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     df = pd.read_feather(uploaded_file)
+else:
+    st.stop()
 df = df.dropna().reset_index(drop=True)
 df['Severity'] = df['Severity'].astype(np.int8)
 st.write("*The following table shows the first 5 data:*")
