@@ -77,7 +77,6 @@ def get_color(severity):
     else:
         return "red"
 
-@st.cache_resource
 def create_map(df, start_date, end_date):
     s = folium.Map(location=[37.0902, -95.7129], zoom_start=4)
     marker_cluster = folium.plugins.MarkerCluster()
