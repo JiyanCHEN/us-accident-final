@@ -22,7 +22,7 @@ def read_model(model):
 rf=read_model('RandomForestClassifier.m')
 # 导出随机森林中的一棵树为dot文件
 tree = st.slider('Select one tree to demonstrate', 0, 19, 1)
-tree_dot = tree.export_graphviz(rf.estimators_[tree], # choose one tree from the random forest model
+tree_dot = rf.export_graphviz(rf.estimators_[tree], # choose one tree from the random forest model
                                 out_file=None, # do not write to a file
                                 feature_names=X.columns, # use the feature names as labels
                                 class_names=['Not severe', 'Severe'], # use the class names as labels
