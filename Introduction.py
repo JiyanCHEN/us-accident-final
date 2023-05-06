@@ -61,9 +61,11 @@ with st.expander("Details about features used in the dataset"):
     """)
 
 st.divider()
-
-st.session_state['uploaded_file'] = st.file_uploader("Choose a file",key="data")
-uploaded_file = st.session_state['uploaded_file']
+if 'uploaded_file' not in st.session_state:
+    st.session_state['uploaded_file'] = None
+if st.session_state['uploaded_file'] is None:
+    st.session_state['uploaded_file'] = st.file_uploader("Choose a file",key="data")
+    uploaded_file = st.session_state['uploaded_file']
 if uploaded_file is not None:
     df = pd.read_feather(uploaded_file)
 else:
