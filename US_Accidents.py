@@ -20,7 +20,9 @@ In recent years, Internet of Things (IoT)has developed rapidly, and improves the
 """
 """
 ## Overview of the data set
+The dataset for this research comes from Kaggle, it is a countrywide car accident dataset, which covers 49 states of the USA. The accident data are collected from February 2016 to Dec 2021, using multiple APIs that provide streaming traffic incident (or event) data. These APIs broadcast traffic data captured by a variety of entities, such as the US and state departments of transportation, law enforcement agencies, traffic cameras, and traffic sensors within the road-networks.
 """
+
 with st.expander("Details about features used in the dataset"):
     st.write("""  
 ###### **Traffic Attributes (6):**
@@ -64,6 +66,8 @@ with st.expander("Details about features used in the dataset"):
 ###### **Period-of-Day (1):**
 - **Sunrise_Sunset:** Shows the period of day (i.e. day or night) based on sunrise/sunset.
     """)
+
+st.divider()
 
 st.session_state['uploaded_file'] = st.file_uploader("Choose a file",key="data")
 uploaded_file = st.session_state['uploaded_file']
