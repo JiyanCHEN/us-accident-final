@@ -62,7 +62,7 @@ with st.expander("Details about features used in the dataset"):
 
 st.session_state['uploaded_file'] = st.file_uploader("Choose a file",key="data")
 
-if uploaded_file is not None:
+if 'uploaded_file' in st.session_state:
     df = pd.read_feather(st.session_state.uploaded_file)
 else:
     st.stop()
