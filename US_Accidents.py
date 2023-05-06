@@ -60,10 +60,10 @@ with st.expander("Details about features used in the dataset"):
 - **Sunrise_Sunset:** Shows the period of day (i.e. day or night) based on sunrise/sunset.
     """)
 
-st.session_state['uploaded_file'] = st.file_uploader("Choose a file",key="data")
-
-if 'uploaded_file' in st.session_state:
-    df = pd.read_feather(st.session_state.uploaded_file)
+ uploaded_file = st.file_uploader("Choose a file",key="data")
+st.session_state['uploaded_file'] = uploaded_file
+if uploaded_file is not None:
+    df = pd.read_feather(uploaded_file)
 else:
     st.stop()
 df = df.dropna().reset_index(drop=True)
@@ -71,7 +71,7 @@ df['Severity'] = df['Severity'].astype(np.int8)
 st.write("*The following table shows the first 5 data:*")
 st.write(df.head(5))
 st.markdown("<hr />", unsafe_allow_html=True)
-df['Year'] = pd.DatetimeIndex(df['Start_Time']).year
+df['Year'] = pd.to_datetime(df['Start_Time']).dt.year
 df["Month"] = pd.to_datetime(df["Start_Time"]).dt.month
 df["Hour"] = pd.to_datetime(df["Start_Time"]).dt.hour
 

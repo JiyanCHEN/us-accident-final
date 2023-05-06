@@ -6,7 +6,8 @@ import joblib
 import pandas as pd
 import numpy as np
 
-df = pd.read_feather(st.session_state.uploaded_file)
+uploaded_file = st.session_state.uploaded_file
+df = pd.read_feather(uploaded_file)
 df = df.dropna()
 df['Severity']=df['Severity'].astype(np.int8)
 df["is_severe"]= np.where(df['Severity'] == 4, 1, 0)

@@ -8,7 +8,8 @@ import json
 import folium
 from streamlit_folium import st_folium
 
-df = pd.read_feather(st.session_state.uploaded_file)
+uploaded_file = st.session_state.uploaded_file
+df = pd.read_feather(uploaded_file)
 df = df.dropna().reset_index(drop=True)
 df['Severity'] = df['Severity'].astype(np.int8)
 
