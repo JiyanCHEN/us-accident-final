@@ -9,7 +9,7 @@ import folium
 from streamlit_folium import st_folium
 
 st.header("US Accidents Visulization")
-st.write("Jiyan CHEN    Leqi LIU    Xiaoyu FU   Linjie XIA")
+st.write("Jiyan CHEN\ \ \ \ Leqi LIU\ \ \ \ Xiaoyu FU\ \ \ \ Linjie XIA")
 st.markdown("<hr />", unsafe_allow_html=True)
 """
 # EDA on US Accidents
