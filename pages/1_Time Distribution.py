@@ -3,6 +3,9 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
+if 'uploaded_file' not in st.session_state:
+    st.warning("Please upload the dataset first")
+    st.stop()
 uploaded_file = st.session_state.uploaded_file
 df = pd.read_feather(uploaded_file)
 df = df.dropna().reset_index(drop=True)
