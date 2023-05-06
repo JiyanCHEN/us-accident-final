@@ -22,6 +22,7 @@ def draw_bar(df, x, y, c, log=False):
     fig = px.bar(
         fig_df, y=y, x=x,
         text_auto='.2s', color=c,
+        color_discrete_sequence=['green','yellow','orange', 'red'],
         labels={x: x, y: "Accidents"},
         log_y=log
     )
