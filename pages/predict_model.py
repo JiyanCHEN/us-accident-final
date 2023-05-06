@@ -56,6 +56,10 @@ with st.form(key="my_form"):
 
 # If the form is submitted, display the values of the features
 if submit:
+    st.write("The values of the features are:")
+    for feature in features:
+        st.write(f"{feature}: {values[feature]}")
+    st.header("Prediction")
     input = pd.DataFrame(values, index=[0])
     predict = rf.predict(input)
     st.write(predict)
