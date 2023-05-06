@@ -5,7 +5,6 @@ from sklearn.model_selection import cross_val_score # import cross_val_score fun
 import joblib
 import pandas as pd
 import numpy as np
-from IPython.display import Image # import Image function
 from sklearn import tree # import tree function
 import pydotplus # import pydotplus package
 
@@ -31,3 +30,8 @@ tree_dot = tree.export_graphviz(rf.estimators_[tree], # choose one tree from the
 
 st.graphviz_chart(tree_dot)
 
+importances = rf.feature_importances_
+indices = np.argsort(importances)[::-1] # 下标排序
+for f in range(x_train.shape[1]):   # x_train.shape[1]=13
+    print("%2d) %-*s %f" % \
+          (f + 1, 30, feat_labels[indices[f]], importances[indices[f]]))
