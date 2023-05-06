@@ -14,6 +14,7 @@ st.markdown("<hr />", unsafe_allow_html=True)
 df['Year'] = pd.DatetimeIndex(df['Start_Time']).year
 df["Month"] = pd.to_datetime(df["Start_Time"]).dt.month
 df["Hour"] = pd.to_datetime(df["Start_Time"]).dt.hour
+df["Weekday"] = pd.to_datetime(df["Start_Time"]).dt.weekday
 
 @st.cache_data
 def draw_bar(df, x, y, c, log=False):
@@ -29,6 +30,7 @@ def draw_bar(df, x, y, c, log=False):
 y = draw_bar(df, "Year", "State", "Severity", True)
 m = draw_bar(df, "Month", "State", "Severity")
 h = draw_bar(df, "Hour", "State", "Severity")
+w = draw_bar(df, "Weekday", "State", "Severity")
 
 st.write("## Visulization on Accidents' Time Distribution")
 period = st.radio(
@@ -43,7 +45,7 @@ if period == 'Yearly':
 elif period == 'Monthly':
     st.plotly_chart(m)
 elif period == 'Weekday':
-    pass
+    st.plotly_chart(w)
 elif period == 'Hourly':
     st.plotly_chart(h)
     
