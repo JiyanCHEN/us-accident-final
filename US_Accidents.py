@@ -60,9 +60,10 @@ with st.expander("Details about features used in the dataset"):
 - **Sunrise_Sunset:** Shows the period of day (i.e. day or night) based on sunrise/sunset.
     """)
 
-uploaded_file = st.file_uploader("Choose a file")
+st.session_state['uploaded_file'] = st.file_uploader("Choose a file",key="data")
+
 if uploaded_file is not None:
-    df = pd.read_feather(uploaded_file)
+    df = pd.read_feather(st.session_state.uploaded_file)
 else:
     st.stop()
 df = df.dropna().reset_index(drop=True)

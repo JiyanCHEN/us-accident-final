@@ -1,4 +1,4 @@
-import streamlit
+import streamlit as st
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score # import cross_val_score function
@@ -6,7 +6,7 @@ import joblib
 import pandas as pd
 import numpy as np
 
-df = pd.read_feather('data/US_Accidents.feather')
+df = pd.read_feather(st.session_state.uploaded_file)
 df = df.dropna()
 df['Severity']=df['Severity'].astype(np.int8)
 df["is_severe"]= np.where(df['Severity'] == 4, 1, 0)

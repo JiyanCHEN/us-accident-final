@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-df = pd.read_feather('data/US_Accidents.feather')
+df = pd.read_feather(st.session_state.uploaded_file)
 df = df.dropna().reset_index(drop=True)
 df['Severity'] = df['Severity'].astype(np.int8)
 st.markdown("<hr />", unsafe_allow_html=True)
