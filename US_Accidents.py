@@ -8,6 +8,7 @@ import json
 import folium
 from streamlit_folium import st_folium
 
+st.set_option('server.maxUploadSize', 500)
 st.header("US Accidents Visulization")
 st.write("Jiyan CHEN")
 st.markdown("<hr />", unsafe_allow_html=True)
