@@ -13,9 +13,14 @@ st.write("Jiyan CHEN&emsp;&emsp;Leqi LIU&emsp;&emsp;Xiaoyu FU&emsp;&emsp;Linjie 
 st.markdown("<hr />", unsafe_allow_html=True)
 """
 # EDA on US Accidents
+## Background
+Traffic accidents are one of the leading causes of death and injury worldwide. According to the World Health Organization, around 1.35 million people die in road accidents every year, and an additional 20-50 million suffer non-fatal injuries, which can have a profound impact on their lives. While there are various factors that contribute to the occurrence of traffic accidents, visual analysis of the data can provide valuable insights into their causes and patterns.
+
+In recent years, Internet of Things (IoT)has developed rapidly, and improves the data collecting of traffic accidents. One of the benefits of the IoT is that it enables the collection and analysis of data from various sources in real time. This can be especially useful for improving the management and prevention of traffic accidents. By using sensors, cameras, GPS, and other devices, IoT can provide detailed information about the location, speed, direction, and condition of vehicles involved in accidents. This data can help authorities to respond faster, identify the causes, and reduce the impacts of collisions. Moreover, IoT can also help drivers to avoid accidents by providing them with alerts, warnings, and recommendations based on the data collected from other vehicles and road infrastructure. Therefore, the development of IoT can improve the data collecting of traffic accidents and enhance the safety and efficiency of transportation systems.
+"""
+"""
 ## Overview of the data set
 """
-
 with st.expander("Details about features used in the dataset"):
     st.write("""  
 ###### **Traffic Attributes (6):**
