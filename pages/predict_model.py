@@ -1,7 +1,7 @@
 import streamlit as st
-from scikit-learn.ensemble import RandomForestClassifier
-from scikit-learn.model_selection import train_test_split
-from scikit-learn.model_selection import cross_val_score # import cross_val_score function
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import cross_val_score # import cross_val_score function
 import joblib
 import pandas as pd
 import numpy as np
